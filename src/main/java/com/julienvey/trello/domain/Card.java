@@ -31,6 +31,7 @@ public class Card extends TrelloEntity {
     private String shortLink;
     private String shortUrl;
     private boolean subscribed;
+    private List<Attachment> attachments;
 
     /* API */
     public void addLabels(String... labels) {
@@ -242,7 +243,15 @@ public class Card extends TrelloEntity {
         this.shortUrl = shortUrl;
     }
 
-    public Card update() {
+    public List<Attachment> getAttachments() {
+		return attachments;
+	}
+
+	public void setAttachments(List<Attachment> attachments) {
+		this.attachments = attachments;
+	}
+
+	public Card update() {
         return trelloService.updateCard(this);
     }
 
